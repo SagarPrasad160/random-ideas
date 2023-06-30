@@ -1,0 +1,14 @@
+{
+  "name": "random-ideas",
+  "version": "1.0.0",
+  "description": "Ideas sharing app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Sagar Prasad",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
