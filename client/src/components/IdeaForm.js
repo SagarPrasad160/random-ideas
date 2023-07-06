@@ -40,6 +40,8 @@ class IdeaForm {
     this._form.elements.username.value = "";
     this._form.elements.tag.value = "";
 
+    this._ideaList.render();
+
     document.dispatchEvent(new Event("closemodal"));
   }
 
