@@ -18,14 +18,12 @@ class IdeaList {
       if (e.target.classList.contains("fa-times")) {
         e.stopImmediatePropagation();
         const ideaId = e.target.parentElement.parentElement.dataset.id;
-        console.log(ideaId);
         this.deleteIdea(ideaId);
       }
     });
   }
 
   async deleteIdea(ideaId) {
-    console.log("ideaid", ideaId);
     try {
       await IdeasApi.deleteIdea(ideaId);
       // update dom
