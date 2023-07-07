@@ -14,21 +14,26 @@ class IdeaList {
   }
 
   addEventListeners() {
-    this._ideaListEl.addEventListener("click", this.deleteIdea.bind(this));
+    this._ideaListEl.addEventListener("click", (e) => {
+      if (e.target.classList.contains("fa-times")) {
+        e.stopImmediatePropagation();
+        const ideaId = e.target.parentElement.parentElement.dataset.id;
+        console.log(ideaId);
+        this.deleteIdea(ideaId);
+      }
+    });
   }
 
-  async deleteIdea(e) {
-    if (e.target.classList.contains("fa-times")) {
-      // delete from server
-      const ideaId = e.target.parentElement.parentElement.dataset.id;
-      try {
-        await IdeasApi.deleteIdea(ideaId);
-        // update dom
-        this._ideas = this._ideas.filter((idea) => idea._id !== ideaId);
-        this.getIdeas();
-      } catch (error) {
-        alert("You cannot delete this");
-      }
+  async deleteIdea(ideaId) {
+    console.log("ideaid", ideaId);
+    try {
+      await IdeasApi.deleteIdea(ideaId);
+      // update dom
+      this._ideas = this._ideas.filter((idea) => idea._id !== ideaId);
+      this.getIdeas();
+    } catch (error) {
+      console.log(error);
+      alert("You cannot delete this");
     }
   }
 

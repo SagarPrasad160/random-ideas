@@ -31,4 +31,4 @@ app.get("/", (req, res) => {
 const ideasRouter = require("./routes/ideas");
 app.use("/api/ideas", ideasRouter);
 
-app.listen(PORT, () => console.log("Listening at Port 5000"));
+app.listen(PORT, () => console.log(`Listening on PORT  ${PORT}`));
