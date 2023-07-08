@@ -1,8 +1,11 @@
+import IdeaForm from "./IdeaForm";
+
 class Modal {
   constructor() {
     this._modal = document.getElementById("modal");
     this._modalBtn = document.getElementById("modal-btn");
     this.addEventListeners();
+    this._ideaForm = new IdeaForm();
   }
 
   addEventListeners() {
@@ -13,6 +16,7 @@ class Modal {
 
   open() {
     this._modal.style.display = "block";
+    this._ideaForm.render();
   }
   close() {
     this._modal.style.display = "none";
@@ -24,4 +28,4 @@ class Modal {
   }
 }
 
-module.exports = Modal;
+export default Modal;
